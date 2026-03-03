@@ -42,12 +42,25 @@ const AchievementsSection = () => {
         <div className="space-y-4">
           {items.map((item, i) => (
             <AnimatedSection key={item.title} delay={0.2 + i * 0.12}>
-              <div className="flex items-start gap-5 p-6 rounded-xl border border-border bg-card card-hover">
-                <div className="p-3 rounded-lg bg-primary/10 text-primary shrink-0">
+              <div
+                className="flex items-start gap-5 p-6 rounded-xl border border-border bg-card/80 backdrop-blur-sm card-hover group"
+                style={{
+                  perspective: "800px",
+                }}
+              >
+                <div className="p-3 rounded-lg bg-primary/10 text-primary shrink-0 group-hover:animate-spin-slow transition-transform">
                   <item.icon size={22} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">{item.title}</h3>
+                  <h3 className="font-semibold text-lg">
+                    {item.type === "hack" ? (
+                      <span className="text-gradient font-bold" style={{ textShadow: "0 0 20px hsl(var(--primary) / 0.3)" }}>
+                        {item.title}
+                      </span>
+                    ) : (
+                      item.title
+                    )}
+                  </h3>
                   <p className="text-sm text-primary font-mono">{item.org}</p>
                   <p className="text-sm text-muted-foreground mt-1">{item.detail}</p>
                 </div>

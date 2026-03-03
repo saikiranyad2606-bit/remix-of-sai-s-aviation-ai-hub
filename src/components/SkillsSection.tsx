@@ -1,4 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
+import Tilt3DCard from "./3d/Tilt3DCard";
 
 const categories = [
   {
@@ -33,21 +34,26 @@ const SkillsSection = () => {
         <div className="grid sm:grid-cols-2 gap-8">
           {categories.map((cat, i) => (
             <AnimatedSection key={cat.title} delay={0.15 + i * 0.1}>
-              <div className="p-6 rounded-xl border border-border bg-card">
-                <h3 className="font-mono text-sm font-semibold text-primary mb-4 tracking-wide">
-                  {cat.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((s) => (
-                    <span
-                      key={s}
-                      className="px-3 py-1.5 text-sm rounded-lg bg-secondary text-secondary-foreground"
-                    >
-                      {s}
-                    </span>
-                  ))}
+              <Tilt3DCard className="rounded-xl" intensity={8}>
+                <div className="p-6 rounded-xl border border-border bg-card/60 backdrop-blur-md glass-card">
+                  <h3 className="font-mono text-sm font-semibold text-primary mb-4 tracking-wide">
+                    {cat.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {cat.skills.map((s, si) => (
+                      <span
+                        key={s}
+                        className="skill-bubble px-3 py-1.5 text-sm rounded-lg bg-secondary text-secondary-foreground border border-border/50 hover:border-primary/40 hover:bg-primary/10 hover:text-primary hover:scale-110 hover:shadow-[0_0_20px_-5px_hsl(var(--primary)/0.3)] transition-all duration-300 cursor-default"
+                        style={{
+                          animationDelay: `${si * 0.1}s`,
+                        }}
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </Tilt3DCard>
             </AnimatedSection>
           ))}
         </div>
