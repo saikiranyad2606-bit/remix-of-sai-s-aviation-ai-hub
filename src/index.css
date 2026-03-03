@@ -15,7 +15,7 @@
     --popover: 222 44% 9%;
     --popover-foreground: 210 40% 92%;
 
-    --primary: 210 100% 56%;
+    --primary: 195 100% 42%;
     --primary-foreground: 222 47% 6%;
 
     --secondary: 222 30% 14%;
@@ -32,21 +32,21 @@
 
     --border: 222 30% 18%;
     --input: 222 30% 18%;
-    --ring: 210 100% 56%;
+    --ring: 195 100% 42%;
 
     --radius: 0.75rem;
 
-    --glow: 210 100% 56%;
+    --glow: 195 100% 42%;
     --surface: 222 40% 12%;
 
     --sidebar-background: 222 44% 9%;
     --sidebar-foreground: 210 40% 92%;
-    --sidebar-primary: 210 100% 56%;
+    --sidebar-primary: 195 100% 42%;
     --sidebar-primary-foreground: 222 47% 6%;
     --sidebar-accent: 222 30% 14%;
     --sidebar-accent-foreground: 210 40% 92%;
     --sidebar-border: 222 30% 18%;
-    --sidebar-ring: 210 100% 56%;
+    --sidebar-ring: 195 100% 42%;
   }
 }
 
@@ -87,5 +87,43 @@
   }
   .radar-line {
     background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.15), transparent);
+  }
+
+  /* 3D Glass morphism */
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--card) / 0.6),
+      hsl(var(--card) / 0.3)
+    );
+    box-shadow:
+      0 8px 32px 0 hsl(var(--primary) / 0.06),
+      inset 0 1px 0 0 hsl(var(--foreground) / 0.05),
+      inset 0 -1px 0 0 hsl(var(--background) / 0.2);
+  }
+
+  /* 3D button press */
+  .btn-3d {
+    transform: translateY(0) translateZ(0);
+    box-shadow: 0 4px 6px -1px hsl(var(--background) / 0.5);
+    transition: all 0.15s ease-out;
+  }
+  .btn-3d:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px -3px hsl(var(--primary) / 0.2);
+  }
+  .btn-3d:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 3px -1px hsl(var(--background) / 0.5);
+  }
+
+  /* Floating animation for cards */
+  .floating-card {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
   }
 }
