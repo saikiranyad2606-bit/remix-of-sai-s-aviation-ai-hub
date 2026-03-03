@@ -98,6 +98,10 @@ export default {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(100vh)" },
         },
+        "spin-slow": {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -106,6 +110,7 @@ export default {
         "fade-in": "fade-in 0.5s ease-out forwards",
         "slide-in-left": "slide-in-left 0.5s ease-out forwards",
         "radar-sweep": "radar-sweep 8s linear infinite",
+        "spin-slow": "spin-slow 2s ease-in-out",
       },
     },
   },

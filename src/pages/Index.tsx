@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -7,17 +8,28 @@ import AchievementsSection from "@/components/AchievementsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
+const AnimatedBackground = lazy(() => import("@/components/3d/AnimatedBackground"));
+const CustomCursor = lazy(() => import("@/components/3d/CustomCursor"));
+
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <AchievementsSection />
-      <ContactSection />
-      <Footer />
+    <div className="min-h-screen bg-background relative">
+      <Suspense fallback={null}>
+        <AnimatedBackground />
+      </Suspense>
+      <Suspense fallback={null}>
+        <CustomCursor />
+      </Suspense>
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <AchievementsSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </div>
   );
 };
