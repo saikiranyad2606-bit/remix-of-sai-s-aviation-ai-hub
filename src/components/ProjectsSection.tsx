@@ -48,21 +48,19 @@ const ProjectsSection = () => {
                       <h3 className="text-xl font-bold text-gradient">{p.title}</h3>
                       <p className="text-sm text-muted-foreground font-mono mt-1">{p.subtitle}</p>
                     </div>
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-lg border border-border hover:border-primary/50 transition-colors"
-                    >
-                      <Github size={16} />
-                    </a>
                   </div>
 
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 relative z-10" style={{ transform: "translateZ(20px)" }}>
-                    {p.description}
+                  <div className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1 relative z-10 space-y-2" style={{ transform: "translateZ(20px)" }}>
+                    {p.description.split("\n\n").map((para, idx) => (
+                      <p key={idx}>{para}</p>
+                    ))}
+                  </div>
+
+                  <p className="text-xs font-mono text-primary mb-4 relative z-10" style={{ transform: "translateZ(25px)" }}>
+                    Focus: {p.focus}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 relative z-10" style={{ transform: "translateZ(40px)" }}>
+                  <div className="flex flex-wrap gap-2 mb-6 relative z-10" style={{ transform: "translateZ(40px)" }}>
                     {p.tech.map((t) => (
                       <span
                         key={t}
@@ -71,6 +69,27 @@ const ProjectsSection = () => {
                         {t}
                       </span>
                     ))}
+                  </div>
+
+                  <div className="flex gap-3 relative z-10" style={{ transform: "translateZ(35px)" }}>
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono rounded-lg border border-border bg-card/50 hover:border-primary/50 hover:bg-primary/10 transition-all active:scale-95"
+                    >
+                      <Github size={14} />
+                      View Code
+                    </a>
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono rounded-lg border border-primary/30 bg-primary/5 hover:bg-primary/15 text-primary transition-all active:scale-95"
+                    >
+                      <ExternalLink size={14} />
+                      System Architecture
+                    </a>
                   </div>
                 </div>
               </Tilt3DCard>
