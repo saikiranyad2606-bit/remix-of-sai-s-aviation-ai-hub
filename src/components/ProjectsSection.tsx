@@ -1,4 +1,4 @@
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import Tilt3DCard from "./3d/Tilt3DCard";
 
@@ -7,7 +7,8 @@ const projects = [
     title: "AeroPredict",
     subtitle: "AI-Powered Arrival Management System (AMAN)",
     description:
-      "Real-time aircraft sequencing system with RTA slot allocation, wake turbulence separation, holding pattern simulation, and ATC voice instructions for optimized runway operations.",
+      "Real-time aviation Arrival Management System simulating airport approach operations.\n\nImplements dynamic aircraft sequencing using Required Time of Arrival (RTA), Estimated Time to Threshold (ETT), and ICAO wake turbulence separation standards.\n\nIncludes delay absorption strategies such as speed control, vectoring, and holding pattern simulation to maintain runway capacity during peak traffic.\n\nFeatures an event-driven aircraft lifecycle model (Approach → Landing → Rollout → Landed) with automated ATC voice instructions.\n\nBackend built using FastAPI with asynchronous simulation loop for real-time arrival flow optimization.",
+    focus: "AI-driven runway sequencing and arrival flow optimization.",
     tech: ["Python", "FastAPI", "AsyncIO", "pyttsx3", "ML Algorithms"],
     github: "https://github.com/saikiranyad2606-bit",
   },
@@ -15,7 +16,8 @@ const projects = [
     title: "AeroFlowSync",
     subtitle: "Aviation Workflow Automation System",
     description:
-      "Slot-based AMAN simulation with fuel burn modeling, Telegram ATC dashboard, Google Sheets logging, and congestion detection for streamlined aviation workflows.",
+      "Aviation operations workflow automation platform designed to support AMAN-style arrival monitoring.\n\nProcesses aircraft arrival data to simulate slot-based sequencing, calculate holding delays, and estimate fuel burn impact.\n\nIncludes automated congestion detection, real-time operational logging, and Telegram-based ATC dashboard for monitoring arrival flow.\n\nIntegrates Google Sheets for persistent flight data storage and operational analytics.",
+    focus: "Aviation workflow automation and operational monitoring.",
     tech: ["n8n", "JavaScript", "Telegram Bot API", "Google Sheets API"],
     github: "https://github.com/saikiranyad2606-bit",
   },
@@ -46,21 +48,19 @@ const ProjectsSection = () => {
                       <h3 className="text-xl font-bold text-gradient">{p.title}</h3>
                       <p className="text-sm text-muted-foreground font-mono mt-1">{p.subtitle}</p>
                     </div>
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-lg border border-border hover:border-primary/50 transition-colors"
-                    >
-                      <Github size={16} />
-                    </a>
                   </div>
 
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 relative z-10" style={{ transform: "translateZ(20px)" }}>
-                    {p.description}
+                  <div className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1 relative z-10 space-y-2" style={{ transform: "translateZ(20px)" }}>
+                    {p.description.split("\n\n").map((para, idx) => (
+                      <p key={idx}>{para}</p>
+                    ))}
+                  </div>
+
+                  <p className="text-xs font-mono text-primary mb-4 relative z-10" style={{ transform: "translateZ(25px)" }}>
+                    Focus: {p.focus}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 relative z-10" style={{ transform: "translateZ(40px)" }}>
+                  <div className="flex flex-wrap gap-2 mb-6 relative z-10" style={{ transform: "translateZ(40px)" }}>
                     {p.tech.map((t) => (
                       <span
                         key={t}
@@ -69,6 +69,27 @@ const ProjectsSection = () => {
                         {t}
                       </span>
                     ))}
+                  </div>
+
+                  <div className="flex gap-3 relative z-10" style={{ transform: "translateZ(35px)" }}>
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono rounded-lg border border-border bg-card/50 hover:border-primary/50 hover:bg-primary/10 transition-all active:scale-95"
+                    >
+                      <Github size={14} />
+                      View Code
+                    </a>
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono rounded-lg border border-primary/30 bg-primary/5 hover:bg-primary/15 text-primary transition-all active:scale-95"
+                    >
+                      <ExternalLink size={14} />
+                      System Architecture
+                    </a>
                   </div>
                 </div>
               </Tilt3DCard>
