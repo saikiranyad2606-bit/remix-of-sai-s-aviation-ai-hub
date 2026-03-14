@@ -25,7 +25,7 @@ const projects = [
     ],
     focus: "Aviation workflow automation and operational monitoring.",
     tech: ["n8n", "JavaScript", "Telegram Bot API", "Google Sheets API"],
-    github: "https://github.com/saikiranyad2606-bit/AERO-FLOW-SYNC",
+    github: "https://github.com/saikiranyad2606-bit/AERO-FLOW-SYNC-",
   },
 ];
 
