@@ -1,5 +1,6 @@
 import { Radar, TowerControl, BarChart3, Plane } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import Tilt3DCard from "./3d/Tilt3DCard";
 
 const focusAreas = [
   { icon: TowerControl, label: "Arrival Management Systems (AMAN)" },
@@ -22,12 +23,14 @@ const AviationFocusSection = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {focusAreas.map((area, i) => (
             <AnimatedSection key={area.label} delay={0.2 + i * 0.1}>
-              <div className="p-6 rounded-xl border border-border bg-card/80 backdrop-blur-sm text-center group hover:border-primary/40 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                  <area.icon size={24} className="text-primary" />
+              <Tilt3DCard className="rounded-xl" intensity={10}>
+                <div className="p-6 rounded-xl border border-border bg-card/80 backdrop-blur-sm text-center group hover:border-primary/40 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                    <area.icon size={24} className="text-primary" />
+                  </div>
+                  <p className="text-sm font-medium text-foreground">{area.label}</p>
                 </div>
-                <p className="text-sm font-medium text-foreground">{area.label}</p>
-              </div>
+              </Tilt3DCard>
             </AnimatedSection>
           ))}
         </div>
