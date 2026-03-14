@@ -1,17 +1,15 @@
 import { lazy, Suspense } from "react";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Phone } from "lucide-react";
 
 const HeroGlobe = lazy(() => import("./3d/HeroGlobe"));
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Globe background */}
       <Suspense fallback={null}>
         <HeroGlobe />
       </Suspense>
 
-      {/* Overlay gradient for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background z-[1]" />
 
       <div className="relative z-10 container text-center px-4" style={{ perspective: "1000px" }}>
@@ -35,8 +33,15 @@ const HeroSection = () => {
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.6s", transform: "translateZ(30px)" }}
         >
-          Building AI-powered systems for smarter skies — optimizing runway capacity,
-          predicting delays, and transforming airport efficiency.
+          AI & Aviation-focused AIML undergraduate — building AI-powered systems for smarter skies,
+          optimizing runway capacity, predicting delays, and transforming airport efficiency.
+        </p>
+
+        <p
+          className="text-xs font-mono text-primary/70 mb-8 opacity-0 animate-fade-up"
+          style={{ animationDelay: "0.7s" }}
+        >
+          Hyderabad, India · Seeking Aviation AI / Data Analytics Internships
         </p>
 
         <div
@@ -64,6 +69,12 @@ const HeroSection = () => {
             className="p-3 rounded-lg border border-border bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all hover:scale-110 active:scale-95"
           >
             <Mail size={20} />
+          </a>
+          <a
+            href="tel:+919392989907"
+            className="p-3 rounded-lg border border-border bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all hover:scale-110 active:scale-95"
+          >
+            <Phone size={20} />
           </a>
         </div>
 

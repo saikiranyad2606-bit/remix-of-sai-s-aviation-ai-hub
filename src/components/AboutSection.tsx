@@ -7,19 +7,19 @@ const pillars = [
     icon: Brain,
     label: "Artificial Intelligence",
     desc: "ML models, LLMs, and agentic AI workflows",
-    backDesc: "Building intelligent systems using cutting-edge machine learning, large language models, and autonomous AI agent pipelines.",
+    backDesc: "Building intelligent systems using regression models, predictive modeling for ETA & delay forecasting, LLM integration, and autonomous AI agent pipelines.",
   },
   {
     icon: Plane,
     label: "Aviation Systems",
     desc: "AMAN, ADS-B, wake turbulence, runway optimization",
-    backDesc: "Designing real-time arrival management, surveillance data processing, and capacity optimization for safer airports.",
+    backDesc: "Designing real-time arrival management, RTA slot allocation, ADS-B surveillance data processing, fuel burn modeling, and ATC sequencing logic for safer airports.",
   },
   {
     icon: BarChart3,
     label: "Data Analytics",
     desc: "Power BI dashboards, SQL, data-driven insights",
-    backDesc: "Transforming raw aviation and operational data into actionable intelligence through interactive dashboards and analysis.",
+    backDesc: "Transforming raw aviation and operational data into actionable intelligence through Power BI, Excel dashboards, and advanced SQL analysis.",
   },
 ];
 
@@ -35,11 +35,14 @@ const AboutSection = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <p className="text-muted-foreground text-lg max-w-3xl mb-12 leading-relaxed">
-            I'm an AI & Machine Learning undergraduate at Vignan Institute of Technology and Science (Class of 2027),
-            passionate about applying artificial intelligence to solve real-world aviation challenges. My work focuses on
-            optimizing runway capacity, predicting flight delays, and improving airport operational efficiency through
-            data-driven AI systems.
+          <p className="text-muted-foreground text-lg max-w-3xl mb-4 leading-relaxed">
+            AI & Aviation-focused AIML undergraduate with hands-on experience in data analytics, machine learning, and backend API systems. Designed and implemented an AI-driven Arrival Management (AMAN) simulation and aviation workflow automation platform to model runway sequencing, delay prediction, and operational optimization.
+          </p>
+          <p className="text-muted-foreground text-lg max-w-3xl mb-4 leading-relaxed">
+            B.Tech — Computer Science & Engineering (AI & ML) at Vignan Institute of Technology and Science (2023–2027) | CGPA: 8.00
+          </p>
+          <p className="text-muted-foreground text-sm max-w-3xl mb-12 leading-relaxed font-mono text-primary/80">
+            Core Focus: Aviation Data Analytics | Arrival Management Systems | Operational Optimization | AI-Driven Decision Support | API-Based Automation
           </p>
         </AnimatedSection>
 
