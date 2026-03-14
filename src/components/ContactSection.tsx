@@ -1,10 +1,9 @@
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, Phone } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const ContactSection = () => {
   return (
     <section id="contact" className="py-24 relative">
-      {/* Floating translucent layers */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/3 blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-accent/3 blur-3xl" />
@@ -19,15 +18,21 @@ const ContactSection = () => {
               Let's <span className="text-gradient">Connect</span>
             </h2>
             <p className="text-muted-foreground mb-10">
-              Open to remote and international internship opportunities in AI, Aviation, and Analytics.
+              Seeking national or international internship opportunities in Aviation Data Analytics, AI-Driven Operations, or Airport Technology Systems.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
               <a
                 href="mailto:saikiranyad2606@gmail.com"
                 className="btn-3d flex items-center gap-3 px-6 py-3 rounded-xl border border-primary bg-primary/10 text-primary hover:bg-primary/20 transition-all font-mono text-sm w-full sm:w-auto justify-center"
               >
                 <Mail size={18} /> saikiranyad2606@gmail.com
+              </a>
+              <a
+                href="tel:+919392989907"
+                className="btn-3d flex items-center gap-3 px-6 py-3 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all font-mono text-sm w-full sm:w-auto justify-center"
+              >
+                <Phone size={18} /> +91 9392989907
               </a>
               <a
                 href="https://www.linkedin.com/in/sai-kiran-jallela-6262503b4/"

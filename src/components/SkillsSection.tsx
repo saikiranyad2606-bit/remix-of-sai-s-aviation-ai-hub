@@ -4,19 +4,35 @@ import Tilt3DCard from "./3d/Tilt3DCard";
 const categories = [
   {
     title: "Programming & Data",
-    skills: ["Python", "SQL", "FastAPI", "Machine Learning", "Power BI"],
+    skills: ["Python (Pandas, NumPy)", "SQL", "Excel", "Data Cleaning & EDA"],
+  },
+  {
+    title: "Machine Learning",
+    skills: ["Regression Models", "Train-Test Split", "MAE Evaluation", "Predictive Modeling (ETA & Delay)"],
+  },
+  {
+    title: "Backend & APIs",
+    skills: ["FastAPI", "REST APIs", "AsyncIO", "JSON", "Telegram Bot API", "Google Sheets API"],
   },
   {
     title: "Aviation Domain",
-    skills: ["AMAN Systems", "ADS-B Data", "ICAO Wake Turbulence", "Runway Capacity Modeling"],
+    skills: ["AMAN Systems", "RTA Slot Allocation", "ICAO Wake Turbulence", "Runway Capacity Modeling", "ADS-B Data", "Fuel Burn Modeling", "ATC Sequencing Logic"],
   },
   {
-    title: "AI & Emerging Tech",
-    skills: ["LLMs", "Prompt Engineering", "Agentic AI Workflows"],
+    title: "AI & Automation",
+    skills: ["LLM Integration", "Prompt Engineering", "Agentic Workflows", "n8n Automation", "AI-Assisted Prototyping"],
+  },
+  {
+    title: "AI Web Development",
+    skills: ["Lovable", "Replit", "Antigravity", "Cursor", "AI-Assisted Builders"],
+  },
+  {
+    title: "Data Visualization",
+    skills: ["Power BI", "Excel Dashboards"],
   },
   {
     title: "Tools & Platforms",
-    skills: ["Git", "Postman", "VS Code", "n8n", "Replit"],
+    skills: ["Git", "GitHub", "VS Code", "Postman", "Replit"],
   },
 ];
 
@@ -31,11 +47,11 @@ const SkillsSection = () => {
           </h2>
         </AnimatedSection>
 
-        <div className="grid sm:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
-            <AnimatedSection key={cat.title} delay={0.15 + i * 0.1}>
-              <Tilt3DCard className="rounded-xl" intensity={8}>
-                <div className="p-6 rounded-xl border border-border bg-card/60 backdrop-blur-md glass-card">
+            <AnimatedSection key={cat.title} delay={0.1 + i * 0.08}>
+              <Tilt3DCard className="rounded-xl h-full" intensity={8}>
+                <div className="p-6 rounded-xl border border-border bg-card/60 backdrop-blur-md glass-card h-full">
                   <h3 className="font-mono text-sm font-semibold text-primary mb-4 tracking-wide">
                     {cat.title}
                   </h3>

@@ -5,21 +5,27 @@ import Tilt3DCard from "./3d/Tilt3DCard";
 const projects = [
   {
     title: "AeroPredict",
-    subtitle: "AI-Powered Arrival Management System (AMAN)",
-    description:
-      "Real-time aviation Arrival Management System simulating airport approach operations.\n\nImplements dynamic aircraft sequencing using Required Time of Arrival (RTA), Estimated Time to Threshold (ETT), and ICAO wake turbulence separation standards.\n\nIncludes delay absorption strategies such as speed control, vectoring, and holding pattern simulation to maintain runway capacity during peak traffic.\n\nFeatures an event-driven aircraft lifecycle model (Approach → Landing → Rollout → Landed) with automated ATC voice instructions.\n\nBackend built using FastAPI with asynchronous simulation loop for real-time arrival flow optimization.",
+    subtitle: "AI-Powered Arrival Management Engine",
+    bullets: [
+      "Designed a real-time aircraft sequencing engine using RTA-based slot allocation, ICAO wake turbulence separation standards, and event-driven state machine architecture.",
+      "Implemented ETA prediction and delay forecasting logic with fuel burn impact modeling across aircraft weight classes.",
+      "Simulated 50+ arrival traffic scenarios and evaluated runway utilization, arrival pressure, and sequencing stability under peak-hour operational conditions.",
+    ],
     focus: "AI-driven runway sequencing and arrival flow optimization.",
-    tech: ["Python", "FastAPI", "AsyncIO", "pyttsx3", "ML Algorithms"],
-    github: "https://github.com/saikiranyad2606-bit",
+    tech: ["Python", "FastAPI", "AsyncIO", "ML Algorithms"],
+    github: "https://github.com/saikiranyad2606-bit/AERO-PREDICT",
   },
   {
     title: "AeroFlowSync",
-    subtitle: "Aviation Workflow Automation System",
-    description:
-      "Aviation operations workflow automation platform designed to support AMAN-style arrival monitoring.\n\nProcesses aircraft arrival data to simulate slot-based sequencing, calculate holding delays, and estimate fuel burn impact.\n\nIncludes automated congestion detection, real-time operational logging, and Telegram-based ATC dashboard for monitoring arrival flow.\n\nIntegrates Google Sheets for persistent flight data storage and operational analytics.",
+    subtitle: "Aviation Operational Control & Automation Layer",
+    bullets: [
+      "Built a workflow orchestration system integrating real-time ATC-style Telegram monitoring dashboard with automated Google Sheets operational logging — reducing manual tracking effort.",
+      "Implemented 30-minute traffic pressure forecasting and congestion detection using arrival rate and holding ratio metrics.",
+      "Designed slot-based sequencing with emergency flight prioritization, optimizing runway utilization through dynamic sequencing logic.",
+    ],
     focus: "Aviation workflow automation and operational monitoring.",
     tech: ["n8n", "JavaScript", "Telegram Bot API", "Google Sheets API"],
-    github: "https://github.com/saikiranyad2606-bit",
+    github: "https://github.com/saikiranyad2606-bit/AERO-FLOW-SYNC",
   },
 ];
 
@@ -30,9 +36,12 @@ const ProjectsSection = () => {
       <div className="container px-4 relative z-10">
         <AnimatedSection>
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-primary mb-2">Projects</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Featured <span className="text-gradient">Work</span>
           </h2>
+          <p className="text-muted-foreground text-sm mb-12 font-mono">
+            Focused on building scalable, modular aviation decision-support systems inspired by real-world AMAN architectures.
+          </p>
         </AnimatedSection>
 
         <div className="grid lg:grid-cols-2 gap-8">
@@ -40,7 +49,6 @@ const ProjectsSection = () => {
             <AnimatedSection key={p.title} delay={0.2 + i * 0.15}>
               <Tilt3DCard className="h-full rounded-xl" intensity={10}>
                 <div className="h-full p-8 rounded-xl border border-border bg-card/80 backdrop-blur-sm flex flex-col relative overflow-hidden group">
-                  {/* Glow effect on hover */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
 
                   <div className="flex items-start justify-between mb-4 relative z-10" style={{ transform: "translateZ(30px)" }}>
@@ -50,11 +58,14 @@ const ProjectsSection = () => {
                     </div>
                   </div>
 
-                  <div className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1 relative z-10 space-y-2" style={{ transform: "translateZ(20px)" }}>
-                    {p.description.split("\n\n").map((para, idx) => (
-                      <p key={idx}>{para}</p>
+                  <ul className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1 relative z-10 space-y-3" style={{ transform: "translateZ(20px)" }}>
+                    {p.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex gap-2">
+                        <span className="text-primary mt-1 shrink-0">▸</span>
+                        <span>{bullet}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
 
                   <p className="text-xs font-mono text-primary mb-4 relative z-10" style={{ transform: "translateZ(25px)" }}>
                     Focus: {p.focus}
